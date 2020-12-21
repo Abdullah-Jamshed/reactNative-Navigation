@@ -5,11 +5,21 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
+import {createStackNavigator} from '@react-navigation/stack';
+
 import Home from './src/screens/Home';
 import About from './src/screens/About';
 import Notifications from './src/screens/Notifications';
 
 const Tab = createMaterialBottomTabNavigator();
+const Stack = createStackNavigator();
+
+const Header = () => (
+  <Stack.Navigator>
+    <Stack.Screen name="Home" component={Home} />
+    <Stack.Screen name="About" component={About} />
+  </Stack.Navigator>
+);
 
 function App() {
   return (
@@ -27,7 +37,7 @@ function App() {
         style={{backgroundColor: 'tomato'}}>
         <Tab.Screen
           name="Home"
-          component={Home}
+          component={Header}
           options={{
             tabBarLabel: 'Home',
             tabBarIcon: ({color}) => (

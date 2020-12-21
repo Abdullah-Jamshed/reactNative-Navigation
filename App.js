@@ -1,61 +1,63 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
-
 import React from 'react';
-import {StyleSheet, View, Text} from 'react-native';
+// import {StyleSheet, View, Text} from 'react-native';
 
-import {Colors} from 'react-native/Libraries/NewAppScreen';
+import {NavigationContainer} from '@react-navigation/native';
+import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
-const App = () => {
+import Home from './src/screens/Home';
+import About from './src/screens/About';
+import Notifications from './src/screens/Notifications';
+
+const Tab = createMaterialBottomTabNavigator();
+
+function App() {
   return (
-    <>
-      <Text>App</Text>
-    </>
-  );
-};
+    <NavigationContainer>
+      {/* <Tab.Navigator
+        initialRouteName="About"
+        barStyle={{backgroundColor: '#694fad'}}>
+        <Tab.Screen name="Home" component={Home} />
+        <Tab.Screen name="About" component={About} />
+      </Tab.Navigator> */}
 
-const styles = StyleSheet.create({
-  scrollView: {
-    backgroundColor: Colors.lighter,
-  },
-  engine: {
-    position: 'absolute',
-    right: 0,
-  },
-  body: {
-    backgroundColor: Colors.white,
-  },
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-    color: Colors.black,
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-    color: Colors.dark,
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-  footer: {
-    color: Colors.dark,
-    fontSize: 12,
-    fontWeight: '600',
-    padding: 4,
-    paddingRight: 12,
-    textAlign: 'right',
-  },
-});
+      <Tab.Navigator
+        initialRouteName="Home"
+        activeColor="#e91e63"
+        style={{backgroundColor: 'tomato'}}>
+        <Tab.Screen
+          name="Home"
+          component={Home}
+          options={{
+            tabBarLabel: 'Home',
+            tabBarIcon: ({color}) => (
+              <MaterialCommunityIcons name="home" color={color} size={26} />
+            ),
+          }}
+        />
+        <Tab.Screen
+          name="Notifications"
+          component={Notifications}
+          options={{
+            tabBarLabel: 'Updates',
+            tabBarIcon: ({color}) => (
+              <MaterialCommunityIcons name="bell" color={color} size={26} />
+            ),
+          }}
+        />
+        <Tab.Screen
+          name="About"
+          component={About}
+          options={{
+            tabBarLabel: 'Profile',
+            tabBarIcon: ({color}) => (
+              <MaterialCommunityIcons name="account" color={color} size={26} />
+            ),
+          }}
+        />
+      </Tab.Navigator>
+    </NavigationContainer>
+  );
+}
 
 export default App;

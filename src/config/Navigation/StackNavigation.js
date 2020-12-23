@@ -3,8 +3,8 @@ import {createStackNavigator} from '@react-navigation/stack';
 import Feather from 'react-native-vector-icons/Feather';
 
 import Home from '../../screens/Home';
-import About from '../../screens/About';
-import Notifications from '../../screens/Notifications';
+import About from '../../screens/Setting';
+import Notifications from '../../screens/Profile';
 
 const Stack = createStackNavigator();
 

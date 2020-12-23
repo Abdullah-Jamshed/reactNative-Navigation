@@ -2,7 +2,7 @@ import React from 'react';
 import {View, StyleSheet} from 'react-native';
 import {DrawerContentScrollView, DrawerItem} from '@react-navigation/drawer';
 // import {createDrawerNavigator} from '@react-navigation/drawer';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 import {Text, Paragraph, Caption, Avatar, Drawer} from 'react-native-paper';
 
@@ -14,23 +14,25 @@ const DrawerContent = (props) => {
       <DrawerContentScrollView>
         <View style={[styles.userInfoSection, styles.row]}>
           <View style={{marginRight: 10}}>
-            {/* <Avatar.Image
+            <Avatar.Image
               size={60}
               source={{
-                // uri:'https://lh3.googleusercontent.com/proxy/vYW0ywk_se7A__NBSJIFTT1S0_9V3SFrOk-UxiQJIJxWG0GcY1g1y9pG7O9YK-7g76jx7JNrKTiOopdeiUuLx8C-HzCbr-i-FcsrCnj3cX7jz2uAzA',
+                uri:
+                  'https://lh3.googleusercontent.com/proxy/vYW0ywk_se7A__NBSJIFTT1S0_9V3SFrOk-UxiQJIJxWG0GcY1g1y9pG7O9YK-7g76jx7JNrKTiOopdeiUuLx8C-HzCbr-i-FcsrCnj3cX7jz2uAzA',
               }}
-            /> */}
+            />
           </View>
+
           <View>
             <Text style={styles.title}>Name</Text>
             <Caption style={styles.caption}>@userid</Caption>
           </View>
         </View>
       </DrawerContentScrollView>
-      <Drawer.Section>
+      <Drawer.Section style={styles.bottomDrawerSection}>
         <Drawer.Item
           icon={({color, size}) => (
-            <Icon name="enter-to-app" size={size} color={color} />
+            <Icon name="log-out-outline" size={size} color={color} />
           )}
           label="First Item"
         />

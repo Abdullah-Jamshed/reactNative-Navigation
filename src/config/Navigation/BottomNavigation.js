@@ -1,19 +1,25 @@
 import React from 'react';
 import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import Icon from 'react-native-vector-icons/Ionicons';
 
-import {HomeStack, NotificationStack, AboutStack} from './StackNavigation';
+import {
+  HomeStack,
+  ProfileStack,
+  SupportStack,
+  SettingStack,
+} from './StackNavigation';
 
 const Tab = createMaterialBottomTabNavigator();
 
 const BottomNavigation = () => {
   return (
     <Tab.Navigator
-      initialRouteName="Home"
+      initialRouteName="HomeScreen"
       activeColor="#fff"
       style={{backgroundColor: 'tomato'}}>
       <Tab.Screen
-        name="Home"
+        name="HomeScreen"
         component={HomeStack}
         options={{
           tabBarLabel: 'Home',
@@ -23,22 +29,32 @@ const BottomNavigation = () => {
         }}
       />
       <Tab.Screen
-        name="Notifications"
-        component={NotificationStack}
-        options={{
-          tabBarLabel: 'Updates',
-          tabBarIcon: ({color}) => (
-            <MaterialCommunityIcons name="bell" color={color} size={26} />
-          ),
-        }}
-      />
-      <Tab.Screen
-        name="About"
-        component={AboutStack}
+        name="Profile"
+        component={ProfileStack}
         options={{
           tabBarLabel: 'Profile',
           tabBarIcon: ({color}) => (
             <MaterialCommunityIcons name="account" color={color} size={26} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Support"
+        component={SupportStack}
+        options={{
+          tabBarLabel: 'Support',
+          tabBarIcon: ({color}) => (
+            <MaterialCommunityIcons name="face-agent" color={color} size={26} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Setting"
+        component={SettingStack}
+        options={{
+          tabBarLabel: 'Setting',
+          tabBarIcon: ({color}) => (
+            <Icon name="settings-outline" color={color} size={26} />
           ),
         }}
       />

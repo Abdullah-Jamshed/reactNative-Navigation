@@ -1,9 +1,10 @@
 import React, {useState} from 'react';
 import {View, StyleSheet} from 'react-native';
 import {DrawerContentScrollView, DrawerItem} from '@react-navigation/drawer';
-// import {createDrawerNavigator} from '@react-navigation/drawer';
+// import {createDrawerNavigator} from '@react-props.navigation/drawer';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Feather from 'react-native-vector-icons/Feather';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import {
   Text,
@@ -68,28 +69,32 @@ const DrawerContent = (props) => {
                 <Icon name="home-outline" size={size} color={color} />
               )}
               label="Home"
+              onPress={() => props.navigation.navigate('HomeScreen')}
             />
             <Drawer.Item
               icon={({color, size}) => (
                 <Feather name="user" size={size} color={color} />
               )}
               label="Profile"
+              onPress={() => props.navigation.navigate('Profile')}
             />
             <Drawer.Item
               icon={({color, size}) => (
                 <Icon name="settings-outline" size={size} color={color} />
               )}
               label="Setting"
+              onPress={() => props.navigation.navigate('Setting')}
             />
             <Drawer.Item
               icon={({color, size}) => (
-                <Icon
-                  name="shield-checkmark-outline"
+                <MaterialCommunityIcons
+                  name="face-agent"
                   size={size}
                   color={color}
                 />
               )}
               label="Support"
+              onPress={() => props.navigation.navigate('Support')}
             />
           </Drawer.Section>
 
